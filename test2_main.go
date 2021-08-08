@@ -16,5 +16,8 @@ func main(){
 	fmt.Println(weight)
 	biobag1 := biobag.NewBioBag()
 	fmt.Println(biobag1)
-	
+	result1 := biobag1.Add(&fruit1)
+	fmt.Println(result1, biobag1)
+	result2 := biobag1.Remove()
+	fmt.Println(result2, biobag1)
 }
