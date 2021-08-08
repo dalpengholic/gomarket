@@ -1,8 +1,9 @@
 package main
 import (
     "fmt"
-	"gopractice/test2_210807/fruit"
-	"gopractice/test2_210807/scale"
+	"gomarket/fruit"
+	"gomarket/scale"
+	"gomarket/biobag"
 	"unsafe"
 )
 
@@ -13,5 +14,7 @@ func main(){
 	scale1 := scale.NewScale()
 	weight := scale1.ShowWeight(fruit1)
 	fmt.Println(weight)
+	biobag1 := biobag.NewBioBag()
+	fmt.Println(biobag1)
 	
 }

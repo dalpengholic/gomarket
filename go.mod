@@ -1,3 +1,3 @@
-module gopractice/test2_210807
+module gomarket
 
 go 1.16

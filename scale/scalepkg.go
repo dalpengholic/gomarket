@@ -1,5 +1,5 @@
 package scale
-import "gopractice/test2_210807/fruit"
+import "gomarket/fruit"
 
 type Scale struct {
 }
