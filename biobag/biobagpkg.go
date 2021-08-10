@@ -11,6 +11,7 @@ type BioBag struct {
 	List [5]*fruit.FruitItem
 }
 
+// Add a fruit in the biobag
 func (b *BioBag) Add(item *fruit.FruitItem) bool {
 	if b.Count < 4 {
 		b.List[b.Count] = item
@@ -22,6 +23,7 @@ func (b *BioBag) Add(item *fruit.FruitItem) bool {
 	}
 }
 
+// Remove a fruit in the biobag
 func (b *BioBag) Remove() bool {
 	if b.Count == 0 {
 		fmt.Println("Bag이 비어있습니다. 비울수 없습니다.")
