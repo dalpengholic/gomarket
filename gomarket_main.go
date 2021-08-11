@@ -36,12 +36,17 @@ func main(){
 	fmt.Println(result1, biobag1)
 
 	// Remove item into the bag
-	result2 := biobag1.Remove()
-	fmt.Println(result2, biobag1)
+	// result2 := biobag1.Remove()
+	// fmt.Println(result2, biobag1)
 	result3 := biobag1.Add(&fruit2)
 	fmt.Println(result3, biobag1, fruit2)
 	biobag1.List[0].Name = "Orange"
 	fmt.Println(*biobag1.List[0])
+
+
+    fmt.Println("현재 비닐에 있는 아이템:", biobag1)
+	weight3 := scale1.ShowWeight(biobag1)
+	fmt.Println(weight3)
 
 	
 
