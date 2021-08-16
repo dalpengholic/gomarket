@@ -52,6 +52,19 @@ func main(){
 	weight3 := scale1.ShowWeight(biobag1)
 	fmt.Println(weight3)
 
+    // test newtag
+	tag2 := tag.NewTag()
+	fmt.Println(tag2)
+
+    // Test PrintTag with fruit item
+	result5 := scale1.PrintTag(fruit1)
+	fmt.Println("result5: " ,result5)
+    // Test PrintTag with biobag 
+	result6 := scale1.PrintTag(biobag1)
+	fmt.Println("result6: " ,result6)
+
+
+
 	
 
 }
