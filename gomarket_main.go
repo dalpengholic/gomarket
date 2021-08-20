@@ -13,7 +13,7 @@ func main(){
 	fruit1 := fruit.NewFruitItem("banana", 0.3)
 	fruit2 := fruit.NewFruitItem("apple", 0.28)
 	fruit3 := fruit.NewFruitItem("Orange", 0.9)
-	fmt.Println(fruit1)
+	fmt.Println("생성된 과일 인스턴스1:", fruit1)
 	fmt.Println(unsafe.Sizeof(fruit1))
 
 	// Create a scale
@@ -21,16 +21,16 @@ func main(){
 
 	// Check weight of the item
 	weight1 := scale1.ShowWeight(fruit1)
-	fmt.Println(weight1)
+	fmt.Println("scale1에 측정한 과일인스턴스1의 무게: ", weight1)
 	weight2 := scale1.ShowWeight(fruit2)
-	fmt.Println(weight2)
+	fmt.Println("scale1에서 측정한 과일인스턴스2의 무게: ", weight2)
 
 	tag1 := tag.NewTag()
-	fmt.Println("This is a new tag: ", tag1)
+	fmt.Println("This is a new tag instance: ", tag1)
 
 	// Create a biobag
 	biobag1 := biobag.NewBioBag()
-	fmt.Println(biobag1)
+	fmt.Println("새로운 biobag 인스턴스:", biobag1)
 
 	// Add item into the bag
 	result1 := biobag1.Add(&fruit1)
