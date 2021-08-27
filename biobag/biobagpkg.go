@@ -13,7 +13,7 @@ type BioBag struct {
 
 // Add a fruit in the biobag
 func (b *BioBag) Add(item *fruit.FruitItem) bool {
-	if b.Count < 4 {
+	if b.Count < 5 {
 		b.List[b.Count] = item
 		b.Count += 1
 		return true
