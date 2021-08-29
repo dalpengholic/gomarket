@@ -1,10 +1,11 @@
 package biobag_test
+
 import (
-	"testing"
+	"fmt"
 	"gomarket/biobag"
 	"gomarket/fruit"
 	"reflect"
-	"fmt"
+	"testing"
 )
 
 func TestNewBioBag(t *testing.T) {
@@ -16,7 +17,7 @@ func TestNewBioBag(t *testing.T) {
 	}
 }
 
-func TestAdd(t *testing.T){
+func TestAdd(t *testing.T) {
 	biobag1 := biobag.NewBioBag()
 	fruit1 := fruit.NewFruitItem("apple", 0.5)
 	fruit2 := fruit.NewFruitItem("apple", 0.4)
@@ -37,6 +38,25 @@ func TestAdd(t *testing.T){
 
 	if result6 == true {
 		t.Errorf("결과는 False 여야합니다.")
+	}
+
+}
+
+func TestRemove(t *testing.T) {
+	biobag0 := biobag.NewBioBag()
+	result0 := biobag0.Remove()
+	if result0 != false {
+		t.Errorf("결과는 false 이어야 합니다.")
+	}
+
+	biobag1 := biobag.NewBioBag()
+	fruit1 := fruit.NewFruitItem("apple", 0.5)
+	fruit2 := fruit.NewFruitItem("apple", 0.4)
+	biobag1.Add(&fruit1)
+	biobag1.Add(&fruit2)
+	result1 := biobag1.Remove()
+	if result1 != true {
+		t.Errorf("결과는 true 이어야 합니다.")
 	}
 
 }
