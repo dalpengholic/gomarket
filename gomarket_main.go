@@ -1,14 +1,19 @@
 package main
+
 import (
-    "fmt"
-	"gomarket/fruit"
-	"gomarket/scale"
+	"database/sql"
+	"fmt"
 	"gomarket/biobag"
+	"gomarket/fruit"
+	"gomarket/platform/fruitdb"
+	"gomarket/scale"
 	"gomarket/tag"
 	"unsafe"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
-func main(){
+func main() {
 	// Create items
 	fruit1 := fruit.NewFruitItem("banana", 0.3)
 	fruit2 := fruit.NewFruitItem("apple", 0.28)
@@ -46,25 +51,29 @@ func main(){
 	biobag1.List[0].Name = "Orange"
 	fmt.Println(*biobag1.List[0])
 
-    fmt.Println(result4)
-    fmt.Println("현재 비닐에 있는 아이템:", biobag1)
+	fmt.Println(result4)
+	fmt.Println("현재 비닐에 있는 아이템:", biobag1)
 	fmt.Println("아이템들: ", biobag1.List[0], biobag1.List[1], biobag1.List[2])
 	weight3 := scale1.ShowWeight(biobag1)
 	fmt.Println(weight3)
 
-    // test newtag
+	// test newtag
 	tag2 := tag.NewTag()
 	fmt.Println(tag2)
 
-    // Test PrintTag with fruit item
+	// Test PrintTag with fruit item
 	result5 := scale1.PrintTag(fruit1)
-	fmt.Println("result5: " ,result5)
-    // Test PrintTag with biobag 
+	fmt.Println("result5: ", result5)
+	// Test PrintTag with biobag
 	result6 := scale1.PrintTag(biobag1)
-	fmt.Println("result6: " ,result6)
+	fmt.Println("result6: ", result6)
 
+	db, _ := sql.Open("sqlite3", "./fruit.db")
+	fruitDB := fruitdb.NewFruitInfo(db)
 
-
-	
+	fruitDB.Add(fruitdb.Item{
+		Name:  "banana",
+		Price: 0.4,
+	})
 
 }
