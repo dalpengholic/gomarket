@@ -8,9 +8,9 @@ type FruitInfo struct {
 
 func (f *FruitInfo) Add(item Item) {
 	stmt, _ := f.DB.Prepare(`
-		INSERT INTO fruitinfo (ID, Name, Price) values (?, ?, ?)
+		INSERT INTO fruitinfo (Name, Price) values (?, ?)
 	`)
-	stmt.Exec(item.ID, item.Name, item.Price)
+	stmt.Exec(item.Name, item.Price)
 }
 
 func (f *FruitInfo) Get() []Item {
@@ -36,12 +36,13 @@ func (f *FruitInfo) Get() []Item {
 func NewFruitInfo(db *sql.DB) *FruitInfo {
 	stmt, _ := db.Prepare(`
 	CREATE TABLE IF NOT EXISTS "fruitinfo" (
-		"ID"	INTEGER NOT NULL UNIQUE,
+		"ID"	INTEGER NOT NULL,
 		"Name"	TEXT,
 		"Price" REAL,
 		PRIMARY KEY("ID" AUTOINCREMENT)
 	);
 	`)
+
 	stmt.Exec()
 
 	return &FruitInfo{

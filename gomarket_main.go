@@ -69,16 +69,15 @@ func main() {
 	fmt.Println("result6: ", result6)
 
 	db, _ := sql.Open("sqlite3", "./fruit.db")
+	defer db.Close()
 	fruitDB := fruitdb.NewFruitInfo(db)
 
 	fruitDB.Add(fruitdb.Item{
-		ID:    0,
 		Name:  "banana",
 		Price: 0.4,
 	})
 
 	fruitDB.Add(fruitdb.Item{
-		ID:    1,
 		Name:  "tomato",
 		Price: 0.4,
 	})
