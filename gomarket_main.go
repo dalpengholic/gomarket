@@ -72,8 +72,18 @@ func main() {
 	fruitDB := fruitdb.NewFruitInfo(db)
 
 	fruitDB.Add(fruitdb.Item{
+		ID:    0,
 		Name:  "banana",
 		Price: 0.4,
 	})
+
+	fruitDB.Add(fruitdb.Item{
+		ID:    1,
+		Name:  "tomato",
+		Price: 0.4,
+	})
+
+	items := fruitDB.Get()
+	fmt.Println(items)
 
 }
